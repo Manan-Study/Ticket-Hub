@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.calculator {
+    width: 330px;
+    background: #f3f3f3;
+    border: 1px solid #aaa;
+    box-shadow: 0 5px 20px #000;
+}
+
+/* Header */
+
+.header {
+    height: 55px;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    gap: 18px;
+}
+
+.menu {
+    font-size: 22px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    flex: 1;
+}
+
+.history {
+    font-size: 24px;
+}
+
+/* Display */
+
+.display {
+    height: 75px;
+    background: #f9f9f9;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #aaa;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+}
+
+#display {
+    font-size: 46px;
+    font-weight: 500;
+    overflow: hidden;
+}
+
+/* Memory */
+
+.memory {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    height: 35px;
+}
+
+.memory button {
+    border: none;
+    background: transparent;
+    color: #777;
+    font-size: 12px;
+}
+
+/* Buttons */
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    padding: 3px;
+}
+
+.buttons button {
+    height: 51px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fafafa;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background: #e5e5e5;
+}
+
+.buttons button:active {
+    background: #ccc;
+}
+
+/* Function buttons */
+
+.buttons .function {
+    background: #f7f7f7;
+}
+
+/* Operators */
+
+.buttons .operator {
+    background: #f5f5f5;
+    font-size: 20px;
+}
+
+/* Equal */
+
+.buttons .equal {
+    background: #087bb9;
+    color: white;
+    border-color: #087bb9;
+    font-size: 20px;
+}
+
+.buttons .equal:hover {
+    background: #096b9f;
+}

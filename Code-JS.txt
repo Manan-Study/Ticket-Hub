@@ -1,0 +1,174 @@
+let current = "0";
+let previous = null;
+let currentOperator = null;
+let shouldReset = false;
+
+const display = document.getElementById("display");
+
+function updateDisplay() {
+    display.textContent = current;
+}
+
+// Number buttons
+function number(num) {
+
+    if (current === "0" || shouldReset) {
+        current = num;
+        shouldReset = false;
+    } else {
+        current += num;
+    }
+
+    updateDisplay();
+}
+
+// Decimal
+function decimal() {
+
+    if (shouldReset) {
+        current = "0";
+        shouldReset = false;
+    }
+
+    if (!current.includes(".")) {
+        current += ".";
+    }
+
+    updateDisplay();
+}
+
+// Operators
+function operator(op) {
+
+    if (currentOperator !== null) {
+        calculate();
+    }
+
+    previous = parseFloat(current);
+    currentOperator = op;
+    shouldReset = true;
+}
+
+// Calculate
+function calculate() {
+
+    if (currentOperator === null || previous === null) {
+        return;
+    }
+
+    let currentNumber = parseFloat(current);
+    let result;
+
+    switch (currentOperator) {
+
+        case "+":
+            result = previous + currentNumber;
+            break;
+
+        case "-":
+            result = previous - currentNumber;
+            break;
+
+        case "*":
+            result = previous * currentNumber;
+            break;
+
+        case "/":
+            if (currentNumber === 0) {
+                current = "Cannot divide by zero";
+                updateDisplay();
+                previous = null;
+                currentOperator = null;
+                return;
+            }
+
+            result = previous / currentNumber;
+            break;
+    }
+
+    current = String(result);
+
+    previous = null;
+    currentOperator = null;
+    shouldReset = true;
+
+    updateDisplay();
+}
+
+// Clear
+function clearDisplay() {
+    current = "0";
+    previous = null;
+    currentOperator = null;
+    shouldReset = false;
+
+    updateDisplay();
+}
+
+// Backspace
+function backspace() {
+
+    if (shouldReset) {
+        return;
+    }
+
+    if (current.length === 1) {
+        current = "0";
+    } else {
+        current = current.slice(0, -1);
+    }
+
+    updateDisplay();
+}
+
+// Percentage
+function percent() {
+
+    current = String(parseFloat(current) / 100);
+    updateDisplay();
+}
+
+// +/-
+function plusMinus() {
+
+    if (current !== "0") {
+        current = String(parseFloat(current) * -1);
+    }
+
+    updateDisplay();
+}
+
+// Square
+function square() {
+
+    current = String(Math.pow(parseFloat(current), 2));
+    updateDisplay();
+}
+
+// Square root
+function squareRoot() {
+
+    let value = parseFloat(current);
+
+    if (value < 0) {
+        current = "Invalid input";
+    } else {
+        current = String(Math.sqrt(value));
+    }
+
+    updateDisplay();
+}
+
+// Reciprocal
+function reciprocal() {
+
+    let value = parseFloat(current);
+
+    if (value === 0) {
+        current = "Cannot divide by zero";
+    } else {
+        current = String(1 / value);
+    }
+
+    updateDisplay();
+}

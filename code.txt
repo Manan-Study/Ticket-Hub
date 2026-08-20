@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="calculator">
+
+    <!-- Header -->
+    <div class="header">
+        <span class="menu">☰</span>
+        <span class="title">Standard</span>
+        <span class="history">◷</span>
+    </div>
+
+    <!-- Display -->
+    <div class="display">
+        <div id="display">0</div>
+    </div>
+
+    <!-- Memory -->
+    <div class="memory">
+        <button>MC</button>
+        <button>MR</button>
+        <button>M+</button>
+        <button>M−</button>
+        <button>MS</button>
+        <button>M∨</button>
+    </div>
+
+    <!-- Buttons -->
+    <div class="buttons">
+
+        <button class="function" onclick="percent()">%</button>
+        <button class="function" onclick="clearDisplay()">CE</button>
+        <button class="function" onclick="clearDisplay()">C</button>
+        <button class="function" onclick="backspace()">⌫</button>
+
+        <button class="function" onclick="reciprocal()">¹⁄ₓ</button>
+        <button class="function" onclick="square()">x²</button>
+        <button class="function" onclick="squareRoot()">√x</button>
+        <button class="operator" onclick="operator('/')">÷</button>
+
+        <button onclick="number('7')">7</button>
+        <button onclick="number('8')">8</button>
+        <button onclick="number('9')">9</button>
+        <button class="operator" onclick="operator('*')">×</button>
+
+        <button onclick="number('4')">4</button>
+        <button onclick="number('5')">5</button>
+        <button onclick="number('6')">6</button>
+        <button class="operator" onclick="operator('-')">−</button>
+
+        <button onclick="number('1')">1</button>
+        <button onclick="number('2')">2</button>
+        <button onclick="number('3')">3</button>
+        <button class="operator" onclick="operator('+')">+</button>
+
+        <button onclick="plusMinus()">+/−</button>
+        <button onclick="number('0')">0</button>
+        <button onclick="decimal()">.</button>
+        <button class="equal" onclick="calculate()">=</button>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
